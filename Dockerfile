@@ -18,6 +18,6 @@ ONBUILD RUN pip install --no-cache-dir -r requirements.txt
 ONBUILD COPY . /app
 
 HEALTHCHECK --interval=30s --timeout=30s --retries=3 \
-    CMD curl -f http://localhost:5000/health || exit 1
+    CMD curl -f http://localhost:8000/health || exit 1
 
-CMD [ "guncorn", "--bind=0.0.0.0:8000",  "wsgi:application" ]
+CMD [ "guncorn", "-w", "4", "-b",  "wsgi:application" ]
