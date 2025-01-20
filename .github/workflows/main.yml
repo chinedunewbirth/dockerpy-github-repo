@@ -27,5 +27,5 @@ jobs:
 
         - name: Run flask flask-app
           run: |
-             python wsgi.py
+             python -m wsgi.py
 
