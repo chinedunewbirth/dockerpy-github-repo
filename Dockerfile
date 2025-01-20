@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-SHELL [ "/bin/bash", "-o", "pipefail", "-c" ]
+SHELL [ "/bin/bash", "-c" ]
 
 EXPOSE 8000
 
