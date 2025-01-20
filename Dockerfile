@@ -20,4 +20,4 @@ ONBUILD COPY . /app
 HEALTHCHECK --interval=30s --timeout=30s --retries=3 \
     CMD curl -f http://localhost:5000/health || exit 1
 
-CMD [ "python", "app.py" ]
+CMD [ "guncorn", "--bind=0.0.0.0:5000",  "wsgi:application" ]
