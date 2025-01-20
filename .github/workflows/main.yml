@@ -27,5 +27,5 @@ jobs:
 
         - name: Run flask-app
           run: |
-             python wsgi.py
+             gunicon wsgi:applcation
 
