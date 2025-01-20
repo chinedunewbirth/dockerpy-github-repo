@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 SHELL [ "/bin/bash", "-o", "pipefail", "-c" ]
 
-EXPOSE 5000
+EXPOSE 8000
 
 STOPSIGNAL SIGTERM
 
@@ -20,4 +20,4 @@ ONBUILD COPY . /app
 HEALTHCHECK --interval=30s --timeout=30s --retries=3 \
     CMD curl -f http://localhost:5000/health || exit 1
 
-CMD [ "guncorn", "--bind=0.0.0.0:5000",  "wsgi:application" ]
+CMD [ "guncorn", "--bind=0.0.0.0:8000",  "wsgi:application" ]
