@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 SHELL [ "/bin/bash", "-c" ]
 
-EXPOSE 8000
+EXPOSE 5000
 
 STOPSIGNAL SIGTERM
 
@@ -20,4 +20,4 @@ ONBUILD COPY . /app
 HEALTHCHECK --interval=30s --timeout=30s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 
-CMD [ "gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "wsgi:application" ]
+CMD [ "gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "wsgi:application" ]
